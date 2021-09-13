@@ -1,6 +1,9 @@
 package com.livrariasaara.domain.model;
 
 import org.hibernate.validator.constraints.br.CPF;
+
+import java.io.Serializable;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -8,9 +11,14 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Cliente {
+public class Cliente implements Serializable{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

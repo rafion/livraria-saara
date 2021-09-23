@@ -8,21 +8,17 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
-public class Cliente implements Serializable{
+@DiscriminatorValue("CLIENTE") //tipo que vai ser gravado na tabela usuario
+@EqualsAndHashCode(callSuper = true)
+public class Cliente extends Usuario implements Serializable{
 
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	protected Integer id;
 
 	@Column(length = 100)
 	@NotBlank(message = "Nome deve ser preenchido")
@@ -30,8 +26,12 @@ public class Cliente implements Serializable{
 	protected String nome;
 	
 	
-	@Column(name = "cpf_cnpj")
+	@Column(name = "cpf")
 	@NotBlank(message="CPF é obrigatorio")
 	@CPF
-	protected String cpfCnpj;
+	protected String cpf;
+	
+	@OneToOne( cascade = CascadeType.PERSIST )
+	@JoinColumn(name = "endereco_id")
+	private Endereco endereco;
 }

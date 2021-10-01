@@ -38,15 +38,12 @@ public class ClienteController {
 		if(!collection.isEmpty()) {
 			return ResponseEntity.ok().body(collection);
 		}
-		
 		return ResponseEntity.noContent().build();
 	}
 
-	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Cliente> insert(@Valid @RequestBody Cliente cliente, BindingResult br) {
-		System.out.println(cliente.toString());
 		if (br.hasErrors())
 			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
 		

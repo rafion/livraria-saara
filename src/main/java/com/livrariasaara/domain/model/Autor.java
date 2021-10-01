@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -17,6 +18,7 @@ import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "AUTOR")
 public class Autor implements Serializable {
 
 	private static final long serialVersionUID = 1L;

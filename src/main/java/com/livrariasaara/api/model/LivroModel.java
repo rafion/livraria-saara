@@ -1,5 +1,7 @@
 package com.livrariasaara.api.model;
 
+import java.math.BigDecimal;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,4 +14,6 @@ public class LivroModel {
 	private String isbn;
 	private Long autorId;
 	private Long editoraId;
+	private BigDecimal precoUnitario;
+	
 }

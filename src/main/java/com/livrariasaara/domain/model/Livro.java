@@ -1,6 +1,7 @@
 package com.livrariasaara.domain.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,8 @@ public class Livro implements Serializable{
 	private String titulo;
 	
 	private String isbn;
+	
+	private BigDecimal precoUnitario;
 	
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id", nullable = false)

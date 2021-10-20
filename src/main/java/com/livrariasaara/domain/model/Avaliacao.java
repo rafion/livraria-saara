@@ -27,12 +27,12 @@ public class Avaliacao implements Serializable {
 	private String comentario;
 	
 	@ManyToOne
-	@JoinColumn(referencedColumnName="id", nullable = false)
+	@JoinColumn(name="livro_id", referencedColumnName="id", nullable = false)
 	@NotNull
 	private Livro livro;
 	
 	@ManyToOne
-	@JoinColumn(referencedColumnName="id", nullable = false)
+	@JoinColumn(name = "cliente_id", referencedColumnName="id", nullable = false)
 	@NotNull
 	private Cliente cliente;
 	

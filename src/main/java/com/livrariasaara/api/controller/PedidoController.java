@@ -20,82 +20,86 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.livrariasaara.api.model.LivroModel;
+
+import com.livrariasaara.api.model.PedidoModel;
 import com.livrariasaara.domain.exception.ConstraintException;
-import com.livrariasaara.domain.model.Livro;
-import com.livrariasaara.domain.repository.LivroRepository;
+import com.livrariasaara.domain.model.Pedido;
+import com.livrariasaara.domain.service.PedidoService;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/livros")
-public class LivroController {
+@RequestMapping("/api/pedidos")
+public class PedidoController {
 	
 	@Autowired
-	LivroRepository livroRepository;
+	PedidoService service;
 	
-	private ModelMapper mapper; //para facilitar a converção de objeto de entrada em objeto de dominio
+	private ModelMapper mapper;
+	
 	
 	@GetMapping
-	public ResponseEntity<List<LivroModel>> findAll() {
-		List<Livro> livros = livroRepository.findAll();
-		if(!livros.isEmpty()) {
-			return  ResponseEntity.ok(toCollectionModel(livros));
+	public ResponseEntity<List<PedidoModel>> findAll() {
+		List<Pedido> pedidos = service.findAll();
+		if(!pedidos.isEmpty()) {
+			return  ResponseEntity.ok(toCollectionModel(pedidos));
 		}
 		return ResponseEntity.noContent().build();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<LivroModel> findById(@PathVariable Long id) {
-		return livroRepository.findById(id)
-				.map(livro -> { //convertendo o objeto de dominio para o de modelo
-					LivroModel livroModel = mapper.map(livro, LivroModel.class);
-					return ResponseEntity.ok(livroModel);
-				}).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<PedidoModel> findById(@PathVariable Long id) {
+		 Pedido pedido = service.findById(id);
+		 
+		 return ResponseEntity.ok(toModel(pedido));
+				
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<LivroModel> insert(@Valid @RequestBody LivroModel livroModel, BindingResult br) {
+	public ResponseEntity<PedidoModel> insert(@Valid @RequestBody PedidoModel pedidoModel, BindingResult br) {
 		if (br.hasErrors())
 			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-		Livro livro = livroRepository.save(toDomainObject(livroModel));
+		Pedido pedido = service.save(toDomainObject(pedidoModel));
 		
-		return ResponseEntity.ok().body(toModel(livro));
+		return ResponseEntity.ok().body(toModel(pedido));
 	}
 	
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public ResponseEntity<LivroModel> update(@Valid @RequestBody LivroModel livroModel, BindingResult br) {
+	public ResponseEntity<PedidoModel> update(@Valid @RequestBody PedidoModel pedidoModel, BindingResult br) {
 		if (br.hasErrors())
 			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-		Livro livro = livroRepository.save(toDomainObject(livroModel));
-		return ResponseEntity.ok().body(toModel(livro));
+		Pedido pedido = service.save(toDomainObject(pedidoModel));
+		return ResponseEntity.ok().body(toModel(pedido));
 	}
 	
 	@DeleteMapping("{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		livroRepository.deleteById(id);
+		service.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
+	
+	
 	
 	
 	/*
 	 * converter Objeto de dominio para objeto model
 	 */
-	public LivroModel toModel(Livro livro) {
-		return mapper.map(livro, LivroModel.class);
+	public PedidoModel toModel(Pedido pedido) {
+		return mapper.map(pedido, PedidoModel.class);
 	}
 	
-	public Livro toDomainObject(LivroModel model) {
-		return mapper.map(model, Livro.class);
+	public Pedido toDomainObject(PedidoModel model) {
+		return mapper.map(model, Pedido.class);
 	}
 	
-	public List<LivroModel> toCollectionModel(List<Livro> obj){
+	public List<PedidoModel> toCollectionModel(List<Pedido> obj){
 		return obj.stream()
 				.map(this::toModel)
 				.collect(Collectors.toList());
 	}
+	
 
 }

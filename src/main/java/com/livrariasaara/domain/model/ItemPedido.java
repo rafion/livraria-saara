@@ -36,17 +36,17 @@ public class ItemPedido implements Serializable {
 	
 	
 		@JoinColumn(name = "pedido_id", referencedColumnName = "id", nullable = false,
-					foreignKey = @ForeignKey (name = "fk_item_pedido_pedido"))
+					foreignKey = @ForeignKey (name = "fk_item_pedido"))
 		@ManyToOne(optional=false, fetch = FetchType.LAZY)
 		@NotNull
 		protected Pedido pedido;
 
 		@NotNull
 		@Column(unique = true)
-		protected Integer item;
+		protected Short item;
 
 		@ManyToOne
-		@JoinColumn(referencedColumnName="id", nullable = false)
+		@JoinColumn(name="livro_id", referencedColumnName="id", nullable = false)
 		@NotNull
 		protected Livro livro;
 
@@ -59,6 +59,7 @@ public class ItemPedido implements Serializable {
 	    @NotNull
 	    @Column(name = "preco_unitario", nullable = false)
 		protected BigDecimal precoUnitario;
+		
 		@PositiveOrZero
 		@Column(columnDefinition = "NUMERIC(10,2) default 0")
 		protected BigDecimal precoTotal;

@@ -11,11 +11,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @JsonInclude(Include.NON_NULL) //não vai incluir propriedades null
 @Getter
 @Setter
+@NoArgsConstructor
 public class StandardError implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,8 +29,7 @@ public class StandardError implements Serializable {
     private String path;
     private List<Campo> campos;
     
-    public StandardError() {
-    }
+   
 
 
 	public StandardError(OffsetDateTime dateTime, Integer status, String error, String message,

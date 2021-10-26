@@ -2,6 +2,8 @@ package com.livrariasaara.api.model;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,5 +17,7 @@ public class LivroModel {
 	private Long autorId;
 	private Long editoraId;
 	private BigDecimal precoUnitario;
+	@JsonProperty("url_img")
+	private String urlImage;
 	
 }

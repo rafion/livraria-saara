@@ -33,6 +33,8 @@ public class Livro implements Serializable{
 	
 	private String isbn;
 	
+	private String urlImage; 
+	
 	private BigDecimal precoUnitario;
 	
 	@ManyToOne

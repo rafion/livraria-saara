@@ -29,7 +29,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/autor")
+@RequestMapping("/api/autores")
 public class AutorController {
     
     @Autowired

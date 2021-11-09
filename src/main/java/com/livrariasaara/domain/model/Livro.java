@@ -37,6 +37,8 @@ public class Livro implements Serializable{
 	
 	private BigDecimal precoUnitario;
 	
+	private boolean disponivel;
+	
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id", nullable = false)
 	private Autor autor;

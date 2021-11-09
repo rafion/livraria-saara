@@ -29,8 +29,6 @@ public class StandardError implements Serializable {
     private String path;
     private List<Campo> campos;
     
-   
-
 
 	public StandardError(OffsetDateTime dateTime, Integer status, String error, String message,
 			String path) {
@@ -48,6 +46,5 @@ public class StandardError implements Serializable {
 		private String name;
 		private String message;
 	}
-    
   
 }

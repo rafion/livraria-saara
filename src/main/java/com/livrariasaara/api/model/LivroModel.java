@@ -19,5 +19,6 @@ public class LivroModel {
 	private BigDecimal precoUnitario;
 	@JsonProperty("url_img")
 	private String urlImage;
+	private boolean disponivel;
 	
 }

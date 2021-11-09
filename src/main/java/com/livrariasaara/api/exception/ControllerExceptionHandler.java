@@ -28,7 +28,6 @@ import com.livrariasaara.domain.exception.ObjectNoContentException;
 import com.livrariasaara.domain.exception.ObjectNotFoundException;
 
 
-
 @ControllerAdvice //tratamento global da classse, de erros no spring boot
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler{
 	
@@ -58,8 +57,6 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler{
 		return handleExceptionInternal(ex, erro, headers, status, request);
 	}
 	
-	
-
 	//tratamento local de exceção
     @ExceptionHandler(ObjectNotFoundException.class)
     public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request) {

@@ -2,6 +2,7 @@ package com.livrariasaara.domain.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -16,6 +17,7 @@ public class Administrador extends Usuario  implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private boolean acessoEspecial;
+	@Column(columnDefinition = "boolean default false")
+	private Boolean acessoEspecial;
 
 }

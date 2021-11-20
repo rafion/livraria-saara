@@ -4,6 +4,8 @@ package com.livrariasaara.domain.model;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +26,11 @@ public class Cliente extends Usuario implements Serializable{
 	protected String nome;
 	*/
 	
+	@NotNull
+	@Column(nullable = false)
+	@NotEmpty(message = "campo Nome é obrigatorio")
+	private String nome;
+	
 	/*
 	@Column(name = "cpf")
 	@NotBlank(message="CPF é obrigatorio")
@@ -31,7 +38,7 @@ public class Cliente extends Usuario implements Serializable{
 	protected String cpf;
 	*/
 	
-	@OneToOne( cascade = CascadeType.PERSIST )
+	@OneToOne( cascade = CascadeType.PERSIST, optional = true )
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
 	

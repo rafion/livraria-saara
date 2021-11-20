@@ -67,8 +67,9 @@ public class AuthenticationController {
 
 	}
 	
+	//singUpRequest alterado para cliente para conter o endereco
 	 @PostMapping("/signup")
-	    public ResponseEntity<?> registerUser(@RequestBody SignUpRequest signUpRequest) {
+	    public ResponseEntity<?> registerUser(@RequestBody Cliente signUpRequest) {
 	        if(usuarioRepository.existsByUsername(signUpRequest.getUsername())) {
 	            return ResponseEntity.badRequest().body("Usuario ja cadastrado!");
 	        }
@@ -77,28 +78,30 @@ public class AuthenticationController {
 	            return ResponseEntity.badRequest().body("Email ja cadastrado!");
 	        }
 
-	        // Creating user's account
+	        
 	        Cliente user = new Cliente();
 	        user.setNome(signUpRequest.getNome());
 	        user.setUsername(signUpRequest.getUsername());
 	        user.setEmail(signUpRequest.getEmail());
 	        user.setPassword(signUpRequest.getPassword());
+	        user.setEndereco(signUpRequest.getEndereco());
 	     
 
 	        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 
 	        Permissao userRole = permisaoRepository.findByDescricao("ROLE_USER")
-	                .orElseThrow(() -> new ObjectNotFoundException("User Role not set."));
+	                .orElseThrow(() -> new ObjectNotFoundException("Permissão de usuario não encontrada"));
 
 	        user.setPermissoes(Collections.singleton(userRole));
 
 	        Usuario result = usuarioRepository.save(user);
 
 	        URI location = ServletUriComponentsBuilder
-	                .fromCurrentContextPath().path("/users/{username}")
+	                .fromCurrentContextPath().path("/usuarios/{username}")
 	                .buildAndExpand(result.getUsername()).toUri();
 
 	        return ResponseEntity.created(location).body(new ApiResponse(true, "Usuario registrado com sucesso"));
+	        //return ResponseEntity.created(location).body(result);
 	    }
 	 
 

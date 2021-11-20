@@ -46,13 +46,12 @@ VALUES
 insert into USUARIO (id,TIPO, ACESSO_ESPECIAL, nome, username, email, password) values
 (1,'ADM', TRUE, 'admin','admin', 'admin@gmail.com', '$2a$10$CwYn1En7B.1bXVi98DpXZOxp7mIqnYyBslMct3ZFVtCtVwW9awKOa');
 
-INSERT INTO permissao (id, descricao) values (1, 'ROLE_CADASTRAR_LIVRO');
-INSERT INTO permissao (id, descricao) values (2, 'ROLE_PESQUISAR_EDITORA');
-INSERT INTO permissao (id, descricao) values (3, 'ROLE_USER');
+INSERT INTO permissao (id, descricao) values (1, 'ROLE_ADMIN');
+INSERT INTO permissao (id, descricao) values (2, 'ROLE_USER');
+
 
 --ADMIN PODE TUDO
 INSERT INTO usuario_permissao (usuario_id, permissao_id) values (1, 1);
-INSERT INTO usuario_permissao (usuario_id, permissao_id) values (1, 2);
 
 
 

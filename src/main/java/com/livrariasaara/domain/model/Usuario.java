@@ -45,11 +45,6 @@ public abstract class Usuario implements Serializable{
 	protected Integer id;
 	
 	@NotNull
-	@Column(nullable = false)
-	@NotEmpty(message = "campo Nome é obrigatorio")
-	private String nome;
-	
-	@NotNull
 	@NotEmpty(message = "campo username obrigatorio")
 	@Column(unique = true, name = "username")
 	protected String username;

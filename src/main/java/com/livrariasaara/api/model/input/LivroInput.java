@@ -1,29 +1,21 @@
-package com.livrariasaara.api.model;
+package com.livrariasaara.api.model.input;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@JsonInclude(Include.NON_NULL)
-public class LivroModel {
+public class LivroInput {
 
 	private Long id;
 	private String titulo;
 	private String isbn;
-	
-	@JsonProperty("autor")
-	private String autorNome;
-	
-	@JsonProperty("editora")
-	private String editoraNome;
-	
+	private Long autorId;
+	private Long editoraId;
 	private BigDecimal precoUnitario;
 	
 	@JsonProperty("url_img")

@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.livrariasaara.api.model.LivroModel;
+import com.livrariasaara.api.model.input.LivroInput;
 import com.livrariasaara.domain.exception.ConstraintException;
 import com.livrariasaara.domain.model.Livro;
 import com.livrariasaara.domain.repository.LivroRepository;
+import com.livrariasaara.domain.repository.filter.LivroFilter;
 
 import lombok.AllArgsConstructor;
 
@@ -55,22 +57,31 @@ public class LivroController {
 				}).orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping("/filter")
+	public ResponseEntity<List<LivroModel>> filter(LivroFilter filter){
+		List<Livro> livro = livroRepository.filtrar(filter);
+		
+		return ResponseEntity.ok(toCollectionModel(livro));
+		
+	
+	}
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<LivroModel> insert(@Valid @RequestBody LivroModel livroModel, BindingResult br) {
+	public ResponseEntity<LivroModel> insert(@Valid @RequestBody LivroInput livroInput, BindingResult br) {
 		if (br.hasErrors())
 			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-		Livro livro = livroRepository.save(toDomainObject(livroModel));
+		Livro livro = livroRepository.save(toDomainObject(livroInput));
 		
 		return ResponseEntity.ok().body(toModel(livro));
 	}
 	
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public ResponseEntity<LivroModel> update(@Valid @RequestBody LivroModel livroModel, BindingResult br) {
+	public ResponseEntity<LivroModel> update(@Valid @RequestBody LivroInput livroInput, BindingResult br) {
 		if (br.hasErrors())
 			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-		Livro livro = livroRepository.save(toDomainObject(livroModel));
+		Livro livro = livroRepository.save(toDomainObject(livroInput));
 		return ResponseEntity.ok().body(toModel(livro));
 	}
 	
@@ -88,7 +99,7 @@ public class LivroController {
 		return mapper.map(livro, LivroModel.class);
 	}
 	
-	public Livro toDomainObject(LivroModel model) {
+	public Livro toDomainObject(LivroInput model) {
 		return mapper.map(model, Livro.class);
 	}
 	

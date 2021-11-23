@@ -92,6 +92,13 @@
 			<version>0.9.1</version>
 		</dependency>
 		
+		<!-- JPA Modelgen para os metamodel exp: CriteriaQuery  Livro_
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		-->
 	</dependencies>
 	
 	

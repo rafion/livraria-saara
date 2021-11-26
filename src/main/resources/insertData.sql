@@ -1,6 +1,6 @@
 INSERT INTO AUTOR (NOME)
  VALUES 
-('José Saramago'),
+('Jose Saramago'),
 ('Clarice Lispector'),
 ('Edgar Allan Poe'),
 ('Fiódor Dostoiévski'),

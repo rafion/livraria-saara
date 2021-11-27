@@ -25,14 +25,14 @@ INSERT INTO EDITORA (NOME)
 ('Scholastic'),
 ('McGraw-Hill Education');
 
-INSERT INTO LIVRO (TITULO, ISBN, AUTOR_ID, EDITORA_ID, PRECO_UNITARIO, DISPONIVEL)
+INSERT INTO LIVRO (TITULO, ISBN, AUTOR_ID, EDITORA_ID, PRECO_UNITARIO, DISPONIVEL, URL_IMAGE)
  VALUES
-('Terra do Pecado', '12345678', 1, 1, 49.90, TRUE),
-('Perto do coração selvagem', '12345999', 2, 1, 59.90, TRUE),
-('O corvo', '12345644', 3, 1, 29.90, TRUE),
-('O idiota', '1234566', 4, 1, 199.90, TRUE),
-('irmãos Karamazov', '123454158', 1, 2, 99.90, TRUE),
-('Hamlet ', '123455158', 5, 3, 79.90, TRUE);
+('Terra do Pecado', '12345678', 1, 1, 300.00, TRUE, 'https://images-na.ssl-images-amazon.com/images/I/41ADIni5wrL.jpg'),
+('Perto do coração selvagem', '12345999', 2, 1, 59.90, TRUE, 'https://m.media-amazon.com/images/P/B07ZH1RNVB.01._SCLZZZZZZZ_SX500_.jpg'),
+('O corvo', '12345644', 3, 1, 29.90, TRUE, 'https://images-na.ssl-images-amazon.com/images/I/515xkV5l3XL._SX331_BO1,204,203,200_.jpg'),
+('O idiota', '1234566', 4, 1, 199.90, TRUE, 'https://m.media-amazon.com/images/P/B08FRJKSM9.01._SCLZZZZZZZ_SX500_.jpg'),
+('irmãos Karamazov', '123454158', 1, 2, 99.90, TRUE, 'https://images-na.ssl-images-amazon.com/images/I/51g-IHo9qCL._SX301_BO1,204,203,200_.jpg'),
+('Hamlet ', '123455158', 5, 3, 79.90, TRUE, 'https://images-na.ssl-images-amazon.com/images/I/51g-IHo9qCL._SX301_BO1,204,203,200_.jpg');
 
 INSERT INTO MEIO_PAGAMENTO (NOME)
 VALUES

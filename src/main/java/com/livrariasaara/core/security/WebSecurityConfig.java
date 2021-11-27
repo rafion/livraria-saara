@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 	
-	private String myAntMatchers[] = {"/signin", "/signup", "/h2-console/**", "/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**","/swagger-ui.html","/webjars/**"};
+	private String myAntMatchers[] = {"/api/**", "/signin", "/signup", "/h2-console/**", "/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**","/swagger-ui.html","/webjars/**"};
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

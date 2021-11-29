@@ -13,7 +13,25 @@ INSERT INTO AUTOR (ID, NOME)
 (11, 'George R. R. Martin'),
 (12, 'George Orwell'),
 (13, 'Thierry Murat'),
-(14, 'Stephen King');
+(14, 'Stephen King'),
+(15, 'Philip K. Dick'),
+(16, 'Neal Stephenson'),
+(17, 'Kurt Vonnegut'),
+(18, 'Ann Leckie'),
+(19, 'James S A Corey'),
+(20, 'Daniel Keyes'),
+(21, 'Stanislaw Lem'),
+(22, 'John Scalzi'),
+(23, 'William Gibson'),
+(24, 'Frank Herbert'),
+(25, 'Isaac Asimov'),
+(26, 'Anthony Burgess'),
+(27, 'Walter M Miller Jr'),
+(28, 'Arthur C. Clarke'),
+(29, 'John Scalzi'),
+(30, 'Michael Crichton'),
+(31, 'Pierre Boulle'),
+(32, 'Richard Matheson');
 
 
 
@@ -28,7 +46,8 @@ INSERT INTO EDITORA (NOME)
 ('Grupo Planeta'),
 ('Springer Nature'),
 ('Scholastic'),
-('McGraw-Hill Education');
+('McGraw-Hill Education'),
+('Aleph');
 
 INSERT INTO LIVRO (TITULO, ISBN, AUTOR_ID, EDITORA_ID, PRECO_UNITARIO, DISPONIVEL, URL_IMAGE)
  VALUES
@@ -50,7 +69,32 @@ INSERT INTO LIVRO (TITULO, ISBN, AUTOR_ID, EDITORA_ID, PRECO_UNITARIO, DISPONIVE
 ('O cemitério','1136', 14, 1 , 34.90 , TRUE, 'https://m.media-amazon.com/images/P/B00CEZUV26.01._SCLZZZZZZZ_SX500_.jpg'),
 ('It: A coisa','1131', 14, 1 , 39.90 , TRUE, 'https://m.media-amazon.com/images/P/B00MEQSA4Q.01._SCLZZZZZZZ_SX500_.jpg'),
 ('O iluminado','1139', 14, 1 , 59.90 , TRUE, 'https://m.media-amazon.com/images/P/B0743MBY15.01._SCLZZZZZZZ_SX500_.jpg'),
-('The Stand','1137', 14, 1 , 59.90 , TRUE, 'https://m.media-amazon.com/images/P/B001C4NXKM.01._SCLZZZZZZZ_SX500_.jpg');
+('The Stand','1137', 14, 1 , 59.90 , TRUE, 'https://m.media-amazon.com/images/P/B001C4NXKM.01._SCLZZZZZZZ_SX500_.jpg'),
+('Ubik','1111', 15, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/512GxL+qpfL.jpg'),
+('Snow Crash','2222', 16, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/51FXJ6YVt-L.jpg'),
+('As sereias de Titã','3333', 17, 11 , 39.90 , TRUE, 'https://m.media-amazon.com/images/I/41y4Fxyzr7L.jpg'),
+('Cama de gato','4444', 17, 11 , 39.90 , TRUE, 'https://m.media-amazon.com/images/I/418+pYdDS+L.jpg'),
+('Justiça ancilar','5555', 18, 11 , 39.90 , TRUE, 'https://m.media-amazon.com/images/I/512VCELmT+L.jpg'),
+('Leviatã desperta','6666', 19, 11 , 39.90 , TRUE, 'https://m.media-amazon.com/images/I/51r+D-LRExL._SX260_.jpg'),
+('Flores Para Algernon','7777', 20, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/51OoTRAChFL.jpg'),
+('Solaris','8888', 21, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/415rcj3hKLL.jpg'),
+('Encarcerados','9999', 22, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/51+t4NIVN+L.jpg'),
+('Neuromancer','4321', 23, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/61YOe9tGVPL.jpg'),
+('Duna','1112', 24, 11 , 69.90 , TRUE, 'https://images-na.ssl-images-amazon.com/images/I/41MRn6hy8-L._SY344_BO1,204,203,200_QL70_ML2_.jpg'),
+('Messias de Duna','1113', 24, 11 , 69.90 , TRUE, 'https://images-na.ssl-images-amazon.com/images/I/51DhRBNvM1L._SX339_BO1,204,203,200_.jpg'),
+('Filhos de Duna','1114', 24, 11 , 69.90 , TRUE, 'https://images-na.ssl-images-amazon.com/images/I/51mqUvezh2L._SX348_BO1,204,203,200_.jpg'),
+('O fim da eternidade','1115', 25, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/61p+TILWn-L.jpg'),
+('Laranja mecânica','1116', 26, 11 , 49.90 , TRUE, 'https://m.media-amazon.com/images/I/51AES0xVwHL.jpg'),
+('Um cântico para Leibowitz','1117', 27, 11 , 39.90 , TRUE, 'https://m.media-amazon.com/images/I/51hf42R1XiL.jpg'),
+('2001: Uma Odisseia no Espaço','1118', 28, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/51rAMvZ01ZL.jpg'),
+('Guerra Do Velho','1118', 29, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/512AyY2uYoL._SX260_.jpg'),
+('Mona Lisa Overdrive','1119', 23, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/61S0fEjVhOL.jpg'),
+('Count Zero','1120', 23, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/51RG3slItLL.jpg'),
+('O Enigma de Andrômeda','1121', 30, 11 , 24.90 , TRUE, 'https://m.media-amazon.com/images/I/51Caun-ejJL.jpg'),
+('O Planeta dos Macacos','1122', 31, 11 , 24.90 , TRUE, 'https://m.media-amazon.com/images/I/61YCQnRJZYL.jpg'),
+('Jurassic Park','1123', 30, 11 , 39.90 , TRUE, 'https://m.media-amazon.com/images/I/51ImWkbpsjL.jpg'),
+('O homem duplo','1124', 15, 11 , 29.90 , TRUE, 'https://m.media-amazon.com/images/I/518c1ZbYYYL.jpg'),
+('Eu Sou A Lenda','1125', 32, 11 , 49.90 , TRUE, 'https://m.media-amazon.com/images/I/61jhTWJ4nkL.jpg');
 
 INSERT INTO MEIO_PAGAMENTO (NOME)
 VALUES

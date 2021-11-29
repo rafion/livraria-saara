@@ -24,7 +24,8 @@ public class SpringFoxConfig {
 	          .build();                                           
 	    }
 	 
-	 private ApiInfo apiInfo() {
+	 @SuppressWarnings("unused")
+	private ApiInfo apiInfo() {
 		    return new ApiInfo(
 		      "My REST API", 
 		      "Some custom description of API.", 

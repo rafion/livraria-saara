@@ -92,6 +92,19 @@
 			<version>0.9.1</version>
 		</dependency>
 		
+		<!-- documentação api, ui http://localhost:8080/swagger-ui/index.html -->
+	<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-boot-starter</artifactId>
+    <version>3.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>3.0.0</version>
+</dependency>
+		
 		<!-- JPA Modelgen para os metamodel exp: CriteriaQuery  Livro_
 		<dependency>
 			<groupId>org.hibernate</groupId>

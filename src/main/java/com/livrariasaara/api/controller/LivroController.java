@@ -60,8 +60,13 @@ public class LivroController {
 	@GetMapping("/filter")
 	public ResponseEntity<List<LivroModel>> filter(LivroFilter filter){
 		
+		//corrigir isso
+		LivroFilter filtro = new LivroFilter();
+		filtro.setTitulo(filter.getTitulo());
+		filtro.setEditora(filter.getTitulo());
+		filtro.setAutor(filter.getTitulo());
 		
-		List<Livro> livro = livroRepository.filtrar(filter);
+		List<Livro> livro = livroRepository.filtrar(filtro);
 		
 		return ResponseEntity.ok(toCollectionModel(livro));
 		

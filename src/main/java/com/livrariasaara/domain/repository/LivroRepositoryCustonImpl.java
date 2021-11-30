@@ -40,6 +40,7 @@ public class LivroRepositoryCustonImpl implements LivroRepositoryCuston {
 		if(filter != null) {
 		List<Predicate> predicates = new ArrayList<>(); // = restricoes(filter, cBuilder, livro); //where
 		
+		
 		if(filter.getTitulo() != null) {
 			predicates.add(cBuilder.or(
 					cBuilder.like(cBuilder.upper(livro.<String>get("titulo")), "%" + filter.getTitulo().toUpperCase() + "%"))); 
@@ -55,7 +56,7 @@ public class LivroRepositoryCustonImpl implements LivroRepositoryCuston {
 					cBuilder.like(cBuilder.upper(joinEditora.<String>get("nome")), "%" + filter.getEditora().toUpperCase() + "%")));
 		}
 		
-		query.where(predicates.stream().toArray(Predicate[]::new)).distinct(true);
+		query.where(cBuilder.or(predicates.stream().toArray(Predicate[]::new)));
 		
 		}
 		

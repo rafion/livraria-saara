@@ -64,7 +64,7 @@ INSERT INTO LIVRO (TITULO, ISBN, AUTOR_ID, EDITORA_ID, PRECO_UNITARIO, DISPONIVE
 ('A dança dos dragões: As Crônicas de Gelo e Fogo','3366', 11, 1 , 48.62 , TRUE, 'https://m.media-amazon.com/images/P/B084SS25D3.01._SCLZZZZZZZ_SX500_.jpg'),
 ('Fogo & Sangue','3377', 11, 1 , 36.60 , TRUE, 'https://m.media-amazon.com/images/P/B07HKPLNHC.01._SCLZZZZZZZ_SX500_.jpg'),
 ('A revolução dos bichos: Um conto de fadas','3388', 12, 1 , 14.90 , TRUE, 'https://images-na.ssl-images-amazon.com/images/I/61owA5ey3iL._SX324_BO1,204,203,200_.jpg'),
-('1984','3323', 11, 1 , 8.90 , TRUE, 'https://m.media-amazon.com/images/P/B08X1WDMQ2.01._SCLZZZZZZZ_SX500_.jpg'),
+('1984','3323', 12, 1 , 8.90 , TRUE, 'https://m.media-amazon.com/images/P/B08X1WDMQ2.01._SCLZZZZZZZ_SX500_.jpg'),
 ('O velho e o mar','1132', 13, 1 , 34.80 , TRUE, 'https://m.media-amazon.com/images/P/B0774WN7QF.01._SCLZZZZZZZ_SX500_.jpg'),
 ('O cemitério','1136', 14, 1 , 34.90 , TRUE, 'https://m.media-amazon.com/images/P/B00CEZUV26.01._SCLZZZZZZZ_SX500_.jpg'),
 ('It: A coisa','1131', 14, 1 , 39.90 , TRUE, 'https://m.media-amazon.com/images/P/B00MEQSA4Q.01._SCLZZZZZZZ_SX500_.jpg'),

@@ -56,7 +56,7 @@ INSERT INTO LIVRO (TITULO, ISBN, AUTOR_ID, EDITORA_ID, PRECO_UNITARIO, DISPONIVE
 ('O corvo', '1234', 3, 1, 29.90, TRUE, 'https://images-na.ssl-images-amazon.com/images/I/515xkV5l3XL._SX331_BO1,204,203,200_.jpg'),
 ('O idiota', '12345', 4, 1, 199.90, TRUE, 'https://m.media-amazon.com/images/P/B08FRJKSM9.01._SCLZZZZZZZ_SX500_.jpg'),
 ('irmãos Karamazov', '123456', 1, 2, 99.90, TRUE, 'https://images-na.ssl-images-amazon.com/images/I/51g-IHo9qCL._SX301_BO1,204,203,200_.jpg'),
-('Hamlet ', '1122', 5, 3, 79.90, TRUE, 'https://images-na.ssl-images-amazon.com/images/I/51g-IHo9qCL._SX301_BO1,204,203,200_.jpg'),
+('Hamlet ', '1122', 5, 3, 79.90, TRUE, 'https://m.media-amazon.com/images/P/B00GGNTHW2.01._SCLZZZZZZZ_SX500_.jpg'),
 ('A Guerra dos Tronos : As Crônicas de Gelo e Fogo','2233', 11, 1 , 59.90 , TRUE, 'https://m.media-amazon.com/images/P/B07PPB9QW1.01._SCLZZZZZZZ_SX500_.jpg'),
 ('A fúria dos reis: As Crônicas de Gelo e Fogo','3322', 11, 1 , 49.90 , TRUE, 'https://m.media-amazon.com/images/P/B07QYPLKV1.01._SCLZZZZZZZ_SX500_.jpg'),
 ('A tormenta de espadas: As Crônicas de Gelo e Fogo','3344', 11, 1 , 39.90 , TRUE, 'https://m.media-amazon.com/images/P/B07QXSYDSB.01._SCLZZZZZZZ_SX500_.jpg'),

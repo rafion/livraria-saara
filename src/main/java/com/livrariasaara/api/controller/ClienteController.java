@@ -1,6 +1,7 @@
 package com.livrariasaara.api.controller;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,7 +35,7 @@ public class ClienteController {
 	ClienteRepository clienteRepository;
 	
 	@GetMapping
-	public ResponseEntity<Collection<Cliente>> findAllCst() {
+	public ResponseEntity<Collection<Cliente>> findAll() {
 		Collection<Cliente> collection = clienteRepository.findAll();
 		if(!collection.isEmpty()) {
 			return ResponseEntity.ok().body(collection);
@@ -61,6 +63,17 @@ public class ClienteController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		clienteRepository.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping("/findByUsername")
+	public ResponseEntity<Cliente> findByUsername(@RequestParam(value = "username") String username) {
+	
+		Optional<Cliente> obj = clienteRepository.findByUsername(username);
+		
+		if (obj.isPresent()) {
+			return new ResponseEntity<Cliente>(obj.get(), HttpStatus.OK);
+		} 
 		return ResponseEntity.noContent().build();
 	}
 	

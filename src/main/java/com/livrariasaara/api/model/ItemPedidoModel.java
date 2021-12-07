@@ -16,7 +16,7 @@ public class ItemPedidoModel {
 
 	private Long id;
 	
-	@NotNull
+	//@NotNull
 	protected Short item;
 	@NotNull
 	protected Long livroId;

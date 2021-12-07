@@ -77,7 +77,7 @@ private void validarPedido(Pedido pedido) {
 
 	private final void validarItens(Pedido pedido) {
 		pedido.getItens().forEach(item -> {
-		
+			
 				Livro livro = livroRepository.findById(item.getLivro().getId()).orElseThrow(() -> new DataIntegrityException(
 						"Livro não encontrado! Id: " + item.getLivro().getId() + ", Tipo: " + Livro.class.getName()));
 				
@@ -85,6 +85,8 @@ private void validarPedido(Pedido pedido) {
 					item.setPedido(pedido);
 					item.setLivro(livro);
 					item.setPrecoUnitario(livro.getPrecoUnitario());
+					
+				
 				}
 		}
 		);

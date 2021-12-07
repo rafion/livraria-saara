@@ -55,7 +55,7 @@ public class AuthenticationController {
 	@Autowired
 	private JpaUserDetailsService jpaUserDetailsService;
 
-	@RequestMapping(value = "/signin", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/signin", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginRequest authenticationRequest) throws Exception {
 		
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
@@ -68,7 +68,7 @@ public class AuthenticationController {
 	}
 	
 	//singUpRequest alterado para cliente para conter o endereco
-	 @PostMapping("/signup")
+	 @PostMapping("/api/signup")
 	    public ResponseEntity<?> registerUser(@RequestBody Cliente signUpRequest) {
 	        if(usuarioRepository.existsByUsername(signUpRequest.getUsername())) {
 	            return ResponseEntity.badRequest().body("Usuario ja cadastrado!");

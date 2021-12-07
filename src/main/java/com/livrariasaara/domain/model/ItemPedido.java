@@ -42,7 +42,6 @@ public class ItemPedido implements Serializable {
 		protected Pedido pedido;
 
 		@NotNull
-		@Column(unique = true)
 		protected Short item;
 
 		@ManyToOne

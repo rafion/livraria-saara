@@ -20,6 +20,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -52,6 +53,7 @@ public abstract class Usuario implements Serializable{
 	@NotNull
 	@NotEmpty(message = "campo password obrigatorio")
 	@Column(name = "password")
+	@JsonProperty( value = "password", access = JsonProperty.Access.WRITE_ONLY) //não permite leitura, opção ao DTO
 	protected String password;
 	
 	@Column(nullable = true, unique = true)

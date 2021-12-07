@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.livrariasaara.api.model.PedidoModel;
 import com.livrariasaara.domain.exception.ConstraintException;
 import com.livrariasaara.domain.model.Pedido;
+import com.livrariasaara.domain.repository.PedidoRepository;
 import com.livrariasaara.domain.service.PedidoService;
 
 import lombok.AllArgsConstructor;
@@ -35,6 +37,9 @@ public class PedidoController {
 	
 	@Autowired
 	PedidoService service;
+	
+	@Autowired
+	PedidoRepository repository;
 	
 	private ModelMapper mapper;
 	
@@ -56,11 +61,21 @@ public class PedidoController {
 				
 	}
 	
+	@GetMapping("/findAllByClienteId")
+	public ResponseEntity<List<PedidoModel>> findAllByClienteId(@RequestParam(value = "clienteId") Integer id) {
+		 List<Pedido> pedidos = repository.findAllByClienteId(id);
+		 
+		 return ResponseEntity.ok(toCollectionModel(pedidos));
+				
+	}
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<PedidoModel> insert(@Valid @RequestBody PedidoModel pedidoModel, BindingResult br) {
+		
 		if (br.hasErrors())
 			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+		
 		Pedido pedido = service.save(toDomainObject(pedidoModel));
 		
 		return ResponseEntity.ok().body(toModel(pedido));

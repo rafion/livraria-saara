@@ -41,13 +41,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.passwordEncoder(new BCryptPasswordEncoder()); /*passando a codificação da senha*/
 	}
 
-	/*esta na classe CryptConfig
-	 * @Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	*/
-
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {

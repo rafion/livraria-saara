@@ -2,6 +2,7 @@ package com.livrariasaara.domain.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,8 @@ public class Pedido implements Serializable {
 	@Column(columnDefinition = "NUMERIC(10,2) default 0")
 	private BigDecimal valorTotal;
 	
+	protected LocalDate data = LocalDate.now();
+	
 	@JoinColumn(referencedColumnName = "id", nullable = false)
 	@NotNull(message = "Id do cliente não pode ser null")
 	@ManyToOne
@@ -64,5 +67,7 @@ public class Pedido implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
 	private Pagamento pagamento;
+	
+	
 	
 }

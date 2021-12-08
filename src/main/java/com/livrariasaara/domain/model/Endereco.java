@@ -30,7 +30,7 @@ public class Endereco implements Serializable {
 
 	@Column(length = 100)
 	@NotBlank(message = "logradouro deve ser preenchido")
-	@Size(min = 2, max = 100, message = "Rua da deve ter entre 2 e 100 letras")
+	@Size(min = 2, max = 100, message = "logradouro deve ter entre 2 e 100 letras")
 	private String logradouro;
 
 	@Digits(integer = 5, fraction = 0, message = "Número deve ser preenchido com um valor inteiro")

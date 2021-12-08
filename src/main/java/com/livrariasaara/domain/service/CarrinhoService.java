@@ -16,7 +16,6 @@ import com.livrariasaara.domain.model.Livro;
 import com.livrariasaara.domain.model.Carrinho;
 import com.livrariasaara.domain.repository.ClienteRepository;
 import com.livrariasaara.domain.repository.LivroRepository;
-import com.livrariasaara.domain.repository.PedidoRepository;
 import com.livrariasaara.domain.repository.CarrinhoRepository;
 
 

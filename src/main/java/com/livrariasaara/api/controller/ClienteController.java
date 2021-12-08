@@ -22,7 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.livrariasaara.domain.exception.ConstraintException;
 import com.livrariasaara.domain.model.Cliente;
+import com.livrariasaara.domain.model.Endereco;
 import com.livrariasaara.domain.repository.ClienteRepository;
+import com.livrariasaara.domain.service.ClienteService;
 
 
 @RestController
@@ -33,6 +35,9 @@ public class ClienteController {
 	 * */
 	@Autowired
 	ClienteRepository clienteRepository;
+	
+	@Autowired
+	ClienteService service;
 	
 	@GetMapping
 	public ResponseEntity<Collection<Cliente>> findAll() {
@@ -58,6 +63,14 @@ public class ClienteController {
 		if (br.hasErrors())
 			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
 		return ResponseEntity.ok().body(clienteRepository.save(cliente));
+	}
+	
+	@PutMapping("updateEndereco")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public ResponseEntity<Cliente> updateEndereco(@Valid@RequestParam(value = "clienteId") Integer clienteId, @RequestBody Endereco endereco, BindingResult br) {
+		if (br.hasErrors())
+			throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+		return ResponseEntity.ok().body(service.updateEndereco(clienteId, endereco));
 	}
 	
 	@DeleteMapping("{id}")
